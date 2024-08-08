@@ -22,6 +22,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/layout', function () {
+    return view('layoutes.layout');
+});
 // controller cathegorie
 Route::get('cathegories',[ CathegorieController::class,'index'])->name('cathegories.index');
 Route::get('cathegories/create',[ CathegorieController::class,'create'])->name('cathegories.create');

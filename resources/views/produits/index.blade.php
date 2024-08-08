@@ -1,77 +1,71 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layoutes.layout')
+@section('button')
+<a class="btn btn-primary"   href="{{ route('produits.create') }}"> Nouveau Produit</a>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                  <table class="table table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Libellé</th>
-                            <th>Prix</th>
-                            <th>Quantité</th>
-                            <th>Description</th>
-                            <th>Catégorie</th>
-                            <th>Image</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                        <tbody>
-                          
-                            @foreach ($produits as $item)
-                            <tr>
-                                <td>{{ $item->id }}</td>
-                                <td>{{ $item->libelle }}</td>
-                                <td>{{ $item->prix }}</td>
-                                <td>{{ $item->quantite }}</td> <!-- Correction orthographique -->
-                                <td>{{ $item->description }}</td>
-                                <td>{{ $item->cathegorie->cathegorie }}</td>
-                                <td>
-                                    @if($item->chemin)
-                                        <img src="{{ asset('photos/' . $item->chemin) }}" alt="{{ $item->libelle }}" style="width: 100px; height: auto;">
-                                    @else
-                                        <p>Aucune image</p>
-                                    @endif
-                                </td>
-                                <td>
-                                    <div class="d-grid gap-2 d-md-block">
-                                        <a href="{{ route('produits.edit', $item->id) }}" class="btn btn-success">
-                                            <i class="fa-solid fa-pen-to-square"></i>
-                                        </a>
-                                        <a href="{{ route('produits.show', $item->id) }}" class="btn btn-primary">
-                                            <i class="fa-solid fa-eye"></i>
-                                        </a>
-                                        <form action="{{ route('produits.delete', $item->id) }}" method="post" style="display:inline-block;">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article?');">
-                                                <i class="fa-solid fa-trash"></i>
-                                            </button>
-                                        </form>
-                                    </div>
-                                </td>
-                            </tr>
-                            @endforeach
-                      
+@endsection
+@section('contenu')
 
-                         
-                          
-                        </tbody>
-                      </table>
+<table id="datatablesSimple">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Libelle</th>
+            <th>Prix</th>
+            <th>Quantite</th>
+            <th>Description</th>
+            <th>Images</th>
+             <th>Action</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>#</th>
+            <th>Libelle</th>
+            <th>Prix</th>
+            <th>Quantite</th>
+            <th>Description</th>
+            <th>Images</th>
+             <th>Action</th>
+        </tr>
+    </tfoot>
+    <tbody>
+        @foreach ($produits as $item )
+        <tr>
+            <td>{{$item->id}}</td>
+            <td>{{$item->libelle}}</td>
+            <td>{{$item->prix}}</td>
+            <td>{{$item->quantite}}</td>
+            <td>{{$item->description}}</td>
+            <td>
+                @if($item->chemin)
+                <img src="{{ asset('photos/' . $item->chemin) }}" alt="{{ $item->libelle }}" style="width: 100px; height: auto;">
+            @else
+                <p>Aucune image</p>
+            @endif
+
+            </td>
+            <td>
+                <div class="d-grid gap-2 d-md-block">
+                    <a href="{{ route('produits.edit', $item->id) }}" class="btn btn-success">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </a>
+                    <a href="{{ route('produits.show', $item->id) }}" class="btn btn-primary">
+                        <i class="fa-solid fa-eye"></i>
+                    </a>
+                    <form action="{{ route('produits.delete', $item->id) }}" method="post" style="display:inline-block;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article?');">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </form>
                 </div>
-            </div>
-        </div>
-    </div>
+            </td>
+        </tr>
+        @endforeach
 
 
 
-
-</x-app-layout>
+    </tbody>
+</table>
+@endsection
