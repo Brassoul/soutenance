@@ -20,11 +20,48 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('site.index');
+})->name('site.index');
+
+Route::get('/shop', function () {
+    return view('site.shop');
+})->name('site.shop');
+
+Route::get('/shop-detail', function () {
+    return view('site.shop_detail');
+})->name('site.shop_detail');
+
+Route::get('/contact', function () {
+    return view('site.contact');
+})->name('site.contact');
+
+Route::get('/cart', function () {
+    return view('site.cart');
+})->name('site.cart');
+
+Route::get('/testimonial', function () {
+    return view('site.testimonial');
+})->name('site.testimonial');
+
+Route::get('/chackout', function () {
+    return view('site.chackout');
+})->name('site.chackout');
+
+
+
 Route::get('/layout', function () {
     return view('layoutes.layout');
 });
+
+
+
+
+
+
+
+
+
+
 // controller cathegorie
 Route::get('cathegories',[ CathegorieController::class,'index'])->name('cathegories.index');
 Route::get('cathegories/create',[ CathegorieController::class,'create'])->name('cathegories.create');
