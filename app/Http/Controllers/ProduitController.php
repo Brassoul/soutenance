@@ -12,6 +12,29 @@ class ProduitController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+     public function shop()
+     {
+         // Récupérer toutes les catégories
+         $cathegories = Cathegorie::all();
+     
+         // Créer un tableau pour stocker le nombre de produits par catégorie
+         $cathegorieCounts = [];
+     
+         // Pour chaque catégorie, compter le nombre de produits
+         foreach ($cathegories as $cathegorie) {
+             // Calculer le nombre de produits dans chaque catégorie
+             $cathegorieCounts[$cathegorie->id] = $cathegorie->produits()->count();
+         }
+     
+         // Récupérer tous les produits
+         $produits = Produit::all();
+     
+         // Passer les données à la vue
+         return view('site.shop', compact('produits', 'cathegories', 'cathegorieCounts'));
+     }
+     
+
     public function index()
     {
          $cathegories =Cathegorie::all();

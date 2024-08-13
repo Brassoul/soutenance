@@ -23,9 +23,13 @@ Route::get('/', function () {
     return view('site.index');
 })->name('site.index');
 
-Route::get('/shop', function () {
-    return view('site.shop');
-})->name('site.shop');
+// Route::get('/shop', function () {
+//     return view('site.shop');
+// })->name('site.shop');
+
+
+Route::get('shop',[ ProduitController::class,'shop'])->name('site.shop');
+
 
 Route::get('/shop-detail', function () {
     return view('site.shop_detail');

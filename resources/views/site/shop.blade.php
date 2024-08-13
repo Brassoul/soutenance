@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Fruitables - Vegetable Website Template</title>
+        <title>o'Terroir - apprivisionnement bord champ</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
@@ -43,34 +43,36 @@
             <div class="container topbar bg-primary d-none d-lg-block">
                 <div class="d-flex justify-content-between">
                     <div class="top-info ps-2">
-                        <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> <a href="#" class="text-white">123 Street, New York</a></small>
-                        <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#" class="text-white">Email@Example.com</a></small>
+                        <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> <a href="#" class="text-white">202 lotissement, Bd Haj Fath,Casablanca</a></small>
+                        <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#" class="text-white">nfatoubintou60@gmail.com</a></small>
                     </div>
                     <div class="top-link pe-2">
-                        <a href="#" class="text-white"><small class="text-white mx-2">Privacy Policy</small>/</a>
-                        <a href="#" class="text-white"><small class="text-white mx-2">Terms of Use</small>/</a>
-                        <a href="#" class="text-white"><small class="text-white ms-2">Sales and Refunds</small></a>
+                        
+                        <a href="#" class="text-white"><small class="text-white mx-2">politique de confidentiaite</small>/</a>
+                        <a href="#" class="text-white"><small class="text-white mx-2">condition d'utilisation</small>/</a>
+                        <a href="#" class="text-white"><small class="text-white ms-2">ventes et rembourssements</small></a>
+
                     </div>
                 </div>
             </div>
             <div class="container px-0">
                 <nav class="navbar navbar-light bg-white navbar-expand-xl">
-                    <a href="{{ url('site.index') }}" class="navbar-brand"><h1 class="text-primary display-6">Fruitables</h1></a>
+                    <a href="{{ url('site.index') }}" class="navbar-brand"><h1 class="text-primary display-6">O'TERROIR</h1></a>
                     <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                         <span class="fa fa-bars text-primary"></span>
                     </button>
                     <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                         <div class="navbar-nav mx-auto">
-                            <a href="{{ route('site.index') }}" class="nav-item nav-link active">Home</a>
-                            <a href="{{ route('site.shop') }}" class="nav-item nav-link">Shop</a>
-                            <a href="{{ route('site.shop_detail') }}" class="nav-item nav-link">Shop Detail</a>
+                            <a href="{{ route('site.index') }}" class="nav-item nav-link active">Acceuil</a>
+                            <a href="{{ route('site.shop') }}" class="nav-item nav-link">boutique</a>
+                            <a href="{{ route('site.shop_detail') }}" class="nav-item nav-link">Detail de la boutique</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                                 <div class="dropdown-menu m-0 bg-secondary rounded-0">
-                                    <a href="{{ route('site.cart') }}" class="dropdown-item">Cart</a>
-                                    <a href="{{ route('site.chackout') }}" class="dropdown-item">Chackout</a>
-                                    <a href="{{ route('site.testimonial') }}" class="dropdown-item">Testimonial</a>
-                                    <a href="" class="dropdown-item">404 Page</a>
+                                    <a href="{{ route('site.cart') }}" class="dropdown-item">Chariot</a>
+                                    <a href="{{ route('site.chackout') }}" class="dropdown-item">Caisse</a>
+                                    <a href="{{ route('site.testimonial') }}" class="dropdown-item">Temoignage</a>
+                                    
                                 </div>
                             </div>
                             <a href="{{ route('site.contact') }}" class="nav-item nav-link">Contact</a>
@@ -97,7 +99,7 @@
             <div class="modal-dialog modal-fullscreen">
                 <div class="modal-content rounded-0">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">recherche par mot cle</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body d-flex align-items-center">
@@ -114,11 +116,11 @@
 
         <!-- Single Page Header start -->
         <div class="container-fluid page-header py-5">
-            <h1 class="text-center text-white display-6">Shop</h1>
+            <h1 class="text-center text-white display-6">Boutique</h1>
             <ol class="breadcrumb justify-content-center mb-0">
-                <li class="breadcrumb-item"><a href="{{ asset('site.index') }}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ asset('site.index') }}">Acceuil</a></li>
                 <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                <li class="breadcrumb-item active text-white">Shop</li>
+                <li class="breadcrumb-item active text-white">Boutique</li>
             </ol>
         </div>
         <!-- Single Page Header End -->
@@ -127,7 +129,7 @@
         <!-- Fruits Shop Start-->
         <div class="container-fluid fruite py-5">
             <div class="container py-5">
-                <h1 class="mb-4">Fresh fruits shop</h1>
+                <h1 class="mb-4">Magasin de fruits frais</h1>
                 <div class="row g-4">
                     <div class="col-lg-12">
                         <div class="row g-4">
@@ -140,12 +142,12 @@
                             <div class="col-6"></div>
                             <div class="col-xl-3">
                                 <div class="bg-light ps-3 py-3 rounded d-flex justify-content-between mb-4">
-                                    <label for="fruits">Default Sorting:</label>
+                                    <label for="fruits">Tri par défaut :</label>
                                     <select id="fruits" name="fruitlist" class="border-0 form-select-sm bg-light me-3" form="fruitform">
-                                        <option value="volvo">Nothing</option>
-                                        <option value="saab">Popularity</option>
-                                        <option value="opel">Organic</option>
-                                        <option value="audi">Fantastic</option>
+                                        <option value="volvo">Rien</option>
+                                        <option value="saab">Popularité</option>
+                                        <option value="opel">Biologique</option>
+                                        <option value="audi">Fantastique</option>
                                     </select>
                                 </div>
                             </div>
@@ -155,38 +157,23 @@
                                 <div class="row g-4">
                                     <div class="col-lg-12">
                                         <div class="mb-3">
-                                            <h4>Categories</h4>
+                                            <h4>Cathegories</h4>
                                             <ul class="list-unstyled fruite-categorie">
-                                                <li>
+                                            @foreach ($cathegories as $item )
+                                            <li>
+                                                <div class="d-flex justify-content-between fruite-name">
+                                                    <a href="#"><i class="fas fa-apple-alt me-2"></i>{{$item->cathegorie}}</a>
+                                                    <span>{{ $cathegorieCounts[$item->id] }}</span>
+                                                </div>
+                                            </li>
+                                            @endforeach
+                                                
+                                                {{-- '<li>
                                                     <div class="d-flex justify-content-between fruite-name">
-                                                        <a href="#"><i class="fas fa-apple-alt me-2"></i>Apples</a>
-                                                        <span>(3)</span>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="d-flex justify-content-between fruite-name">
-                                                        <a href="#"><i class="fas fa-apple-alt me-2"></i>Oranges</a>
+                                                        <a href="#"><i class="fas fa-apple-alt me-2"></i>fruits</sa>
                                                         <span>(5)</span>
                                                     </div>
-                                                </li>
-                                                <li>
-                                                    <div class="d-flex justify-content-between fruite-name">
-                                                        <a href="#"><i class="fas fa-apple-alt me-2"></i>Strawbery</a>
-                                                        <span>(2)</span>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="d-flex justify-content-between fruite-name">
-                                                        <a href="#"><i class="fas fa-apple-alt me-2"></i>Banana</a>
-                                                        <span>(8)</span>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="d-flex justify-content-between fruite-name">
-                                                        <a href="#"><i class="fas fa-apple-alt me-2"></i>Pumpkin</a>
-                                                        <span>(5)</span>
-                                                    </div>
-                                                </li>
+                                                </li>' --}}
                                             </ul>
                                         </div>
                                     </div>
@@ -199,14 +186,14 @@
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="mb-3">
-                                            <h4>Additional</h4>
+                                            <h4>Supplémentaire</h4>
                                             <div class="mb-2">
                                                 <input type="radio" class="me-2" id="Categories-1" name="Categories-1" value="Beverages">
-                                                <label for="Categories-1"> Organic</label>
+                                                <label for="Categories-1"> Organique</label>
                                             </div>
                                             <div class="mb-2">
                                                 <input type="radio" class="me-2" id="Categories-2" name="Categories-1" value="Beverages">
-                                                <label for="Categories-2"> Fresh</label>
+                                                <label for="Categories-2"> Fraiche</label>
                                             </div>
                                             <div class="mb-2">
                                                 <input type="radio" class="me-2" id="Categories-3" name="Categories-1" value="Beverages">
@@ -297,6 +284,26 @@
                             </div>
                             <div class="col-lg-9">
                                 <div class="row g-4 justify-content-center">
+@foreach ($produits as $item )
+<div class="col-md-6 col-lg-6 col-xl-4">
+    <div class="rounded position-relative fruite-item">
+        <div class="fruite-img">
+            <img src="img/fruite-item-5.jpg" class="img-fluid w-100 rounded-top" alt="">
+        </div>
+        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">{{$item->cathegorie->cathegorie}}</div>
+        <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+            <h4>{{$item->libelle}}</h4>
+            <p>{{$item->description}}</p>
+            <div class="d-flex justify-content-between flex-lg-wrap">
+                <p class="text-dark fs-5 fw-bold mb-0">{{$item->prix}} DHS / kg</p>
+                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+            </div>
+        </div>
+    </div>
+</div>
+@endforeach
+                                    
+                                    
                                     <div class="col-md-6 col-lg-6 col-xl-4">
                                         <div class="rounded position-relative fruite-item">
                                             <div class="fruite-img">
@@ -307,23 +314,7 @@
                                                 <h4>Grapes</h4>
                                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
                                                 <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                                    <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-6 col-xl-4">
-                                        <div class="rounded position-relative fruite-item">
-                                            <div class="fruite-img">
-                                                <img src="img/fruite-item-5.jpg" class="img-fluid w-100 rounded-top" alt="">
-                                            </div>
-                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
-                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                <h4>Grapes</h4>
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                                                <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                    <p class="text-dark fs-5 fw-bold mb-0">4.99 / kg</p>
                                                     <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
                                                 </div>
                                             </div>
@@ -377,6 +368,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="col-md-6 col-lg-6 col-xl-4">
                                         <div class="rounded position-relative fruite-item">
                                             <div class="fruite-img">
