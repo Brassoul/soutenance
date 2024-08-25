@@ -55,7 +55,7 @@
             </div>
             <div class="container px-0">
                 <nav class="navbar navbar-light bg-white navbar-expand-xl">
-                    <a href="index.html" class="navbar-brand"><h1 class="text-primary display-6">Fruitables</h1></a>
+                    <a href="{{ route('site.index') }}" class="navbar-brand"><h1 class="text-primary display-6">O'TERROIR</h1></a>
                     <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                         <span class="fa fa-bars text-primary"></span>
                     </button>
@@ -81,9 +81,19 @@
                                 <i class="fa fa-shopping-bag fa-2x"></i>
                                 <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1" style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
                             </a>
-                            <a href="#" class="my-auto">
-                                <i class="fas fa-user fa-2x"></i>
-                            </a>
+                            @if (Route::has('login'))
+                            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
+                                @auth
+                                    <a href="{{ route('profile.edit') }}" class="my-auto"><i class="fas fa-user fa-2x"></i></a>
+                                @else
+                                    <a href="{{ route('login') }}" class="my-auto"><i class="fas fa-user fa-2x"></i></a>
+            
+                                    {{-- @if (Route::has('register'))
+                                        <a href="{{ route('register') }}" class="ml-4 my-auto"><i class="fas fa-user fa-2x"></i></a>
+                                    @endif --}}
+                                @endauth
+                            </div>
+                        @endif
                         </div>
                     </div>
                 </nav>

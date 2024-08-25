@@ -13,9 +13,29 @@ class ProduitController extends Controller
      * Display a listing of the resource.
      */
 
-     public function shop()
-     {
-         // Récupérer toutes les catégories
+    //  public function shop()
+    //  {
+    //      // Récupérer toutes les catégories
+    //      $cathegories = Cathegorie::all();
+     
+    //      // Créer un tableau pour stocker le nombre de produits par catégorie
+    //      $cathegorieCounts = [];
+     
+    //      // Pour chaque catégorie, compter le nombre de produits
+    //      foreach ($cathegories as $cathegorie) {
+    //          // Calculer le nombre de produits dans chaque catégorie
+    //          $cathegorieCounts[$cathegorie->id] = $cathegorie->produits()->count();
+    //      }
+     
+    //      // Récupérer tous les produits
+    //      $produits = Produit::all();
+     
+    //      // Passer les données à la vue
+    //      return view('site.shop', compact('produits', 'cathegories', 'cathegorieCounts'));
+    //  }
+    public function shop(Request $request)
+    {
+               // Récupérer toutes les catégories
          $cathegories = Cathegorie::all();
      
          // Créer un tableau pour stocker le nombre de produits par catégorie
@@ -26,14 +46,52 @@ class ProduitController extends Controller
              // Calculer le nombre de produits dans chaque catégorie
              $cathegorieCounts[$cathegorie->id] = $cathegorie->produits()->count();
          }
-     
-         // Récupérer tous les produits
-         $produits = Produit::all();
-     
-         // Passer les données à la vue
-         return view('site.shop', compact('produits', 'cathegories', 'cathegorieCounts'));
-     }
-     
+        $query = Produit::query();
+    
+        if ($request->has('min_price') && $request->has('max_price')) {
+            $query->whereBetween('prix', [$request->min_price, $request->max_price]);
+        }
+    
+        if ($request->has('category')) {
+            $query->where('cathegorie_id', $request->category);
+        }
+    
+        if ($request->has('availability')) {
+            $query->where('quantite', '>', 0);
+        }
+    
+        if ($request->has('sort_by')) {
+            $query->orderBy($request->sort_by, $request->order ?? 'asc');
+        }
+    
+        if ($request->has('search')) {
+            $query->where('libelle', 'like', '%' . $request->search . '%')
+                  ->orWhere('description', 'like', '%' . $request->search . '%');
+        }
+    
+        if ($request->has('popular')) {
+            $query->withCount('Lignecommandes')
+                  ->orderBy('lignecommandes_count', 'desc');
+        }
+    
+        if ($request->has('newest')) {
+            $query->orderBy('created_at', 'desc');
+        }
+    
+        if ($request->has('average_rating')) {
+            $query->with(['Avieclients' => function ($q) {
+                $q->selectRaw('produits_id, AVG(note) as average_rating')
+                  ->groupBy('produits_id');
+            }])->orderBy('average_rating', 'desc');
+        }
+    
+        $produits = $query->get();
+        $cathegories = Cathegorie::all();
+        $produits = Produit::paginate(12); // Exemple avec 12 produits par page
+
+        return view('site.shop', compact('produits', 'cathegories','cathegorieCounts'));
+    }
+      
 
     public function index()
     {
