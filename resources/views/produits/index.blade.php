@@ -38,7 +38,7 @@
             <td>{{$item->description}}</td>
             <td>
                 @if($item->chemin)
-                <img src="{{ asset('photos/' . $item->chemin) }}" alt="{{ $item->libelle }}" style="width: 100px; height: auto;">
+                <img src="{{ asset('storage/' . $item->chemin) }}" alt="{{ $item->libelle }}" style="width: 100px; height: auto;">
             @else
                 <p>Aucune image</p>
             @endif

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('libelle');
             $table->float('prix');
-            $table->string('quantite');
+            $table->float('quantite');
             $table->text('description');
             $table->string('chemin');
             $table->foreignId('cathegorie_id')->constrained();

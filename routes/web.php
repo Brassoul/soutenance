@@ -35,6 +35,10 @@ Route::get('/shop-detail', function () {
     return view('site.shop_detail');
 })->name('site.shop_detail');
 
+
+Route::get('site.shop-detail/{id}',[ ProduitController::class,'shop_detail'])->name('produits.shop_detail');
+
+
 Route::get('/contact', function () {
     return view('site.contact');
 })->name('site.contact');
