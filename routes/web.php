@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\avieclientcontroller;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CathegorieController;
 use App\Http\Controllers\commandecontroller;
 use App\Http\Controllers\ProduitController;
@@ -43,9 +44,17 @@ Route::get('/contact', function () {
     return view('site.contact');
 })->name('site.contact');
 
-Route::get('/cart', function () {
-    return view('site.cart');
-})->name('site.cart');
+// Route::get('/cart', function () {
+//     return view('site.cart');
+// })->name('site.cart');
+
+Route::get('cart',[ CartController::class,'cart'])->name('site.cart');
+Route::get('add-cart/{produitID}',[ CartController::class,'AddCart'])->name('add.cart');
+Route::get('Add-quantity/{produitID}',[ CartController::class,'Addquantity'])->name('Add.quantity');
+Route::get('decrease-quantity/{produitID}',[ CartController::class,'decreasequantity'])->name('decrease.quantity');
+Route::get('remove-produit/{produitID}',[ CartController::class,'remove'])->name('remove.produit');
+Route::get('clear/cart',[ CartController::class,'clearCart'])->name('clear.cart');
+
 
 Route::get('/testimonial', function () {
     return view('site.testimonial');

@@ -251,7 +251,7 @@
                                             <p>{{ $item->quantite }} kg disponible</p>
                                             <div class="d-flex justify-content-between flex-lg-wrap">
                                                 <p class="text-dark fs-5 fw-bold mb-0">{{ $item->prix }} DHS / kg</p>
-                                                <a href="{{ route('produits.shop_detail', $item->id) }}" class="btn border border-secondary rounded-pill px-3 text-primary">
+                                                <a href="{{ route('add.cart',$item->id) }}" class="btn border border-secondary rounded-pill px-3 text-primary">
                                                     <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
                                                 </a>
                                             </div>
