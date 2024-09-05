@@ -1,13 +1,14 @@
 <?php
 
-use App\Http\Controllers\avieclientcontroller;
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\CathegorieController;
-use App\Http\Controllers\commandecontroller;
-use App\Http\Controllers\ProduitController;
-use App\Http\Controllers\ProfileController;
 use App\Models\Cathegorie;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ProduitController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\commandecontroller;
+use App\Http\Controllers\avieclientcontroller;
+use App\Http\Controllers\CathegorieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,9 +45,9 @@ Route::get('/contact', function () {
     return view('site.contact');
 })->name('site.contact');
 
-// Route::get('/cart', function () {
-//     return view('site.cart');
-// })->name('site.cart');
+Route::get('/cart', function () {
+    return view('site.cart');
+ })->name('site.cart');
 
 Route::get('cart',[ CartController::class,'cart'])->name('site.cart');
 Route::get('add-cart/{produitID}',[ CartController::class,'AddCart'])->name('add.cart');
@@ -69,6 +70,13 @@ Route::get('/chackout', function () {
 Route::get('/layout', function () {
     return view('layoutes.layout');
 });
+
+//route payement
+Route::get('/payment', [PaymentController::class, 'processPayment'])->name('payment.process');
+Route::post('/payment', [PaymentController::class, 'handlePayment'])->name('payment.handle');
+
+Route::get('/confirmation', [PaymentController::class, 'showConfirmation'])->name('payment.confirmation');
+
 
 
 

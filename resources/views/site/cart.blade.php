@@ -146,11 +146,11 @@
                         <thead>
                           <tr>
                             <th scope="col">Products</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Quantity</th>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Prix</th>
+                            <th scope="col">Quantite</th>
                             <th scope="col">Total</th>
-                            <th scope="col">Handle</th>
+                            <th scope="col">sous total</th>
                             <th scope="col">
                                 <a href="{{ route('clear.cart') }}"> vider</a>
                             </th>
@@ -218,7 +218,7 @@
                                     <p class="mb-0">{{$Subtotal}}</p>
                                 </div>
                                 <div class="d-flex justify-content-between">
-                                    <h5 class="mb-0 me-4">Shipping</h5>
+                                    <h5 class="mb-0 me-4">Expédition</h5>
                                     <div class="">
                                         <p class="mb-0">Flat rate: 200.00</p>
                                     </div>
@@ -229,7 +229,7 @@
                                 <h5 class="mb-0 ps-4 me-4">Total</h5>
                                 <p class="mb-0 pe-4">{{$total}}</p>
                             </div>
-                            <button class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4" type="button">Proceed Checkout</button>
+                            <a href="{{ route('payment.process') }}" class="btn btn-success">Passer à la caisse</a>
                         </div>
                     </div>
                 </div>
